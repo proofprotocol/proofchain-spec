@@ -1,10 +1,10 @@
-# PP-SPEC-008 · ProofChain Anchoring Specification
+# PP-SPEC-008 · ProofChain™ Anchoring Specification
 
 **Document ID:** PP-SPEC-008  
 **Version:** 0.1 - Draft  
 **Status:** Draft  
 **License:** CC BY 4.0  
-**Maintained by:** Proof Economy Standards Alliance (PESA)  
+**Maintained by:** Proof Economy™ Standards Alliance (PESA)  
 **Repository:** https://github.com/proofprotocol/proofchain-spec  
 **Published:** 2026-07-13  
 
@@ -12,9 +12,9 @@
 
 ## Abstract
 
-This specification defines ProofChain anchoring: the mechanism by which proof records are permanently timestamped using the NIST Randomness Beacon.
+This specification defines ProofChain™ anchoring: the mechanism by which proof records are permanently timestamped using the NIST Randomness Beacon.
 
-Proof Protocol is not a blockchain. It requires no token, no wallet, no consensus mechanism, and no chain. Timestamping is achieved via the NIST Randomness Beacon — federal infrastructure operated by the National Institute of Standards and Technology — which provides cryptographically signed random values every 60 seconds.
+Proof Protocol™ is not a blockchain. It requires no token, no wallet, no consensus mechanism, and no chain. Timestamping is achieved via the NIST Randomness Beacon — federal infrastructure operated by the National Institute of Standards and Technology — which provides cryptographically signed random values every 60 seconds.
 
 No chain required. No account required. No service dependency. Just the math and the federal government.
 
@@ -32,7 +32,7 @@ Draft. Subject to change before v1.0.
 2. [NIST Randomness Beacon](#2-nist-randomness-beacon)
 3. [Pre-Execution Commitment](#3-pre-execution-commitment)
 4. [Post-Execution Anchoring](#4-post-execution-anchoring)
-5. [ProofChain Record](#5-proofchain-record)
+5. [ProofChain™ Record](#5-proofchain-record)
 6. [Verification](#6-verification)
 7. [Why Not Blockchain](#7-why-not-blockchain)
 8. [Conformance](#8-conformance)
@@ -44,7 +44,7 @@ Draft. Subject to change before v1.0.
 
 A proof record without a timestamp is not a proof. Anyone can construct a receipt after the fact and claim it predates an event. The timestamp is what makes post-hoc fabrication structurally impossible.
 
-The Proof Protocol solves this with two anchoring points:
+The Proof Protocol™ solves this with two anchoring points:
 
 1. **Pre-execution commitment** — before the run begins, the test parameters are committed to a NIST Beacon pulse. This proves the parameters could not have been selected after seeing the results.
 
@@ -76,7 +76,7 @@ Before a benchmark run begins:
 1. Retrieve the current NIST Beacon pulse from `https://beacon.nist.gov/beacon/2.0/pulse/last`
 2. Record the complete pulse JSON including `pulseIndex`, `timeStamp`, and `outputValue`
 3. Commit the test parameters — corpus reference, case hashes, execution environment hash — to this pulse
-4. Store the commitment in `nist-pulse.json` in the ProofBundle
+4. Store the commitment in `nist-pulse.json` in the ProofBundle™
 
 The pre-execution commitment proves:
 - The test parameters were fixed before execution began
@@ -91,7 +91,7 @@ After the run completes and the receipt chain is verified:
 
 1. Retrieve the current NIST Beacon pulse
 2. Record the root hash of the receipt chain alongside this pulse
-3. Submit to ProofRegister which records the anchor permanently
+3. Submit to ProofRegister™ which records the anchor permanently
 
 The post-execution anchor proves:
 - The receipt chain existed at a specific moment in time
@@ -100,7 +100,7 @@ The post-execution anchor proves:
 
 ---
 
-## 5. ProofChain Record
+## 5. ProofChain™ Record
 
 ```json
 {
@@ -132,11 +132,11 @@ The post-execution anchor proves:
 
 ## 6. Verification
 
-To verify a ProofChain anchor:
+To verify a ProofChain™ anchor:
 
 1. Retrieve the pre-execution pulse from `pre_execution.pulse_uri`
 2. Confirm `output_value` matches the archived pulse
-3. Confirm `pre_execution.timestamp` predates `run.started_at` in the ProofBundle
+3. Confirm `pre_execution.timestamp` predates `run.started_at` in the ProofBundle™
 4. Retrieve the post-execution pulse from `post_execution.pulse_uri`
 5. Confirm `output_value` matches the archived pulse
 6. Confirm `root_hash` matches `verifier.root_hash` in `packet.json`
@@ -147,13 +147,13 @@ All verification steps are offline after the initial pulse retrieval. The NIST B
 
 ## 7. Why Not Blockchain
 
-Blockchain is not required for any function the Proof Protocol performs.
+Blockchain is not required for any function the Proof Protocol™ performs.
 
-| Function | Blockchain approach | Proof Protocol approach |
+| Function | Blockchain approach | Proof Protocol™ approach |
 |----------|--------------------|-----------------------|
 | Timestamping | Transaction timestamp | NIST Beacon pulse |
 | Tamper evidence | Block hash chain | Ed25519 receipt chain |
-| Public record | On-chain storage | ProofRegister |
+| Public record | On-chain storage | ProofRegister™ |
 | Verification | Node RPC call | NIST Beacon archive query |
 
 The NIST approach is strictly superior for enterprise and government use:
@@ -165,18 +165,18 @@ The NIST approach is strictly superior for enterprise and government use:
 - Federal government operated
 - Zero regulatory exposure
 
-Proof Protocol is not a blockchain play. It is cryptographic proof infrastructure for the agentic economy.
+Proof Protocol™ is not a blockchain play. It is cryptographic proof infrastructure for the agentic economy.
 
 ---
 
 ## 8. Conformance
 
-A ProofBundle is conformant with ProofChain anchoring if:
+A ProofBundle™ is conformant with ProofChain™ anchoring if:
 
 - `nist-pulse.json` contains a complete NIST Beacon pulse JSON
 - The pulse timestamp predates `run.started_at` in `packet.json`
 - The pulse `outputValue` matches the archived value at `beacon.nist.gov`
-- Post-execution anchoring is recorded in `proofregister.json` if ProofRegister submission was completed
+- Post-execution anchoring is recorded in `proofregister.json` if ProofRegister™ submission was completed
 
 ---
 
