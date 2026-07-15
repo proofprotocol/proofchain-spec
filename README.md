@@ -14,7 +14,7 @@
 
 This specification defines ProofChain™ anchoring: the mechanism by which proof records are permanently timestamped using the NIST Randomness Beacon.
 
-Proof Protocol™ is not a blockchain. It requires no token, no wallet, no consensus mechanism, and no chain. Timestamping is achieved via the NIST Randomness Beacon — federal infrastructure operated by the National Institute of Standards and Technology — which provides cryptographically signed random values every 60 seconds.
+Proof Protocol™ is not a blockchain. It requires no token, no wallet, no consensus mechanism, and no chain. Timestamping is achieved via the NIST Randomness Beacon - federal infrastructure operated by the National Institute of Standards and Technology - which provides cryptographically signed random values every 60 seconds.
 
 No chain required. No account required. No service dependency. Just the math and the federal government.
 
@@ -46,9 +46,9 @@ A proof record without a timestamp is not a proof. Anyone can construct a receip
 
 The Proof Protocol™ solves this with two anchoring points:
 
-1. **Pre-execution commitment** — before the run begins, the test parameters are committed to a NIST Beacon pulse. This proves the parameters could not have been selected after seeing the results.
+1. **Pre-execution commitment** - before the run begins, the test parameters are committed to a NIST Beacon pulse. This proves the parameters could not have been selected after seeing the results.
 
-2. **Post-execution anchoring** — after the run completes, the root hash of the receipt chain is anchored to a NIST Beacon pulse. This timestamps the completed evidence record.
+2. **Post-execution anchoring** - after the run completes, the root hash of the receipt chain is anchored to a NIST Beacon pulse. This timestamps the completed evidence record.
 
 Together these two anchors make the proof tamper-resistant by design. Not by policy. By math.
 
@@ -75,7 +75,7 @@ Before a benchmark run begins:
 
 1. Retrieve the current NIST Beacon pulse from `https://beacon.nist.gov/beacon/2.0/pulse/last`
 2. Record the complete pulse JSON including `pulseIndex`, `timeStamp`, and `outputValue`
-3. Commit the test parameters — corpus reference, case hashes, execution environment hash — to this pulse
+3. Commit the test parameters - corpus reference, case hashes, execution environment hash - to this pulse
 4. Store the commitment in `nist-pulse.json` in the ProofBundle™
 
 The pre-execution commitment proves:
@@ -188,4 +188,4 @@ Castle Rock, Colorado
 
 ---
 
-*CC BY 4.0 — Attribution to Craig Ellrod / Nebulonium, Inc. required.*
+*CC BY 4.0 - Attribution to Craig Ellrod / Nebulonium, Inc. required.*
