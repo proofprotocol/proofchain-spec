@@ -1,0 +1,25 @@
+{
+  "title": "PP-SPEC-008: ProofChain Anchoring Specification",
+  "upload_type": "publication",
+  "creators": [
+    {
+      "name": "Ellrod, Craig",
+      "affiliation": "Nebulonium, Inc. (HACKERverse)"
+    }
+  ],
+  "description": "PP-SPEC-008: ProofChain Anchoring Specification",
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "keywords": [
+    "proof-protocol",
+    "nist-randomness-beacon"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/proofprotocol/proofchain-spec",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "publication_type": "technicalnote"
+}
