@@ -10,6 +10,11 @@
 **Repository:** https://github.com/proofprotocol/proofchain-spec  
 **Published:** 2026-07-13  
 
+## Cite as
+
+Ellrod, C. (2026). PP-SPEC-008: ProofChain Anchoring Specification.
+Proof Economy Standards Alliance (PESA). https://doi.org/10.5281/zenodo.21379780
+
 ---
 
 ## Abstract
