@@ -187,6 +187,19 @@ A ProofBundle™ is conformant with ProofChain™ anchoring if:
 
 ---
 
+## Extensions
+
+ProofChain records MAY use the universal Proof Protocol `extensions` mechanism defined by **PP-SPEC-001**. Extension keys MUST use globally distinguishable namespaces; reverse-domain notation is RECOMMENDED.
+
+Implementations MAY add namespaced record metadata. Extensions MUST NOT alter canonical serialization, hash inputs, predecessor linkage, temporal requirements, or anchor verification unless a future core specification explicitly versions those semantics.
+
+A conforming implementation MUST be able to ignore an unknown extension and still evaluate this specification's core semantics. Extension-specific validation is supplemental and MUST remain distinguishable from core Proof Protocol conformance.
+
+> **Extensions enrich the object. They do not redefine the protocol.**
+
+---
+
+
 ## 9. Authors
 
 Craig Ellrod, Founder & CEO, Nebulonium, Inc. (d/b/a HACKERverse)  
