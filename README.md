@@ -67,7 +67,7 @@ The NIST Randomness Beacon (beacon.nist.gov) publishes a new cryptographically s
 
 - Has a unique index
 - Contains the SHA-512 hash of the previous pulse
-- Is signed by NIST's Ed25519 key
+- Is signed by NIST with an RSA key (4096-bit for current pulses), identified in each pulse by its `certificateId` and published at beacon.nist.gov
 - Is permanently archived and publicly verifiable
 
 Because each pulse value is unpredictable before it is published, its presence in a document proves the document could not have been written before that pulse was published.
